@@ -8,6 +8,8 @@ import EditCategoryModal from './components/EditCategoryModal';
 import { MoonIcon, SunIcon, PlusIcon } from './components/Icons';
 import './styles/app.css';
 
+const API_BASE = import.meta.env.VITE_API_URL || '${API_BASE}';
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedDate, setSelectedDate] = useState(() => {
@@ -66,12 +68,12 @@ function App() {
 
   const handleDeleteCategory = async (categoryToDelete) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/tasks/category/${encodeURIComponent(categoryToDelete)}`);
+      const response = await fetch(`${API_BASE}/api/tasks/category/${encodeURIComponent(categoryToDelete)}`);
       const allTasksInCategory = await response.json();
 
       for (const task of allTasksInCategory) {
         try {
-          await fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+          await fetch(`${API_BASE}/api/tasks/${task._id}`, {
             method: 'DELETE',
           });
         } catch (err) {
@@ -105,7 +107,7 @@ function App() {
 
   const fetchAllTasks = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/tasks');
+      const response = await fetch(`${API_BASE}/api/tasks`);
       const data = await response.json();
       setAllTasks(data);
       return data;
@@ -121,7 +123,7 @@ function App() {
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const day = String(date.getDate()).padStart(2, '0');
       const dateStr = `${year}-${month}-${day}`;
-      const response = await fetch(`http://localhost:5000/api/tasks/by-date/${dateStr}`);
+      const response = await fetch(`${API_BASE}/api/tasks/by-date/${dateStr}`);
       const data = await response.json();
       setTasks(data);
       setLoading(false);
@@ -145,7 +147,7 @@ function App() {
       const day = String(selectedDate.getDate()).padStart(2, '0');
       const dateStr = `${year}-${month}-${day}`;
       
-      const response = await fetch('http://localhost:5000/api/tasks', {
+      const response = await fetch(`${API_BASE}/api/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -165,7 +167,7 @@ function App() {
 
   const handleToggleTask = async (taskId, completed) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+      const response = await fetch(`${API_BASE}/api/tasks/${taskId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed }),
@@ -180,7 +182,7 @@ function App() {
 
   const handleDeleteTask = async (taskId) => {
     try {
-      await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+      await fetch(`${API_BASE}/api/tasks/${taskId}`, {
         method: 'DELETE',
       });
       setTasks(tasks.filter(t => t._id !== taskId));
@@ -204,7 +206,7 @@ function App() {
 
   const handleCategoryChange = async (taskId, newCategory) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+      const response = await fetch(`${API_BASE}/api/tasks/${taskId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ category: newCategory }),
@@ -222,7 +224,7 @@ function App() {
 
   const handleSaveEditTask = async (updatedTask) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/tasks/${updatedTask._id}`, {
+      const response = await fetch(`${API_BASE}/api/tasks/${updatedTask._id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -247,7 +249,7 @@ function App() {
     try {
       const tasksInCategory = tasks.filter(t => t.category === oldName);
       for (const task of tasksInCategory) {
-        await fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+        await fetch(`${API_BASE}/api/tasks/${task._id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ category: newName }),
@@ -277,7 +279,7 @@ function App() {
 
   const getTaskCountForCategoryAllDates = async (category) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/tasks/category/${encodeURIComponent(category)}`);
+      const response = await fetch(`${API_BASE}/api/tasks/category/${encodeURIComponent(category)}`);
       const data = await response.json();
       return data.length;
     } catch (err) {
