@@ -1,0 +1,230 @@
+.category-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 999;
+}
+
+.category-popup {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  width: 280px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.category-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-popup-header h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.close-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: transparent;
+  color: var(--primary-text);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.close-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.category-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.category-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: background-color 0.15s;
+  background-color: transparent;
+}
+
+.category-item-container:hover {
+  background-color: var(--hover-bg);
+}
+
+.category-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.category-edit-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--tertiary-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.category-item-container:hover .category-edit-btn {
+  opacity: 1;
+}
+
+.category-edit-btn:hover {
+  background-color: var(--border-color);
+  color: var(--primary-text);
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  user-select: none;
+  border: none;
+  background-color: transparent;
+  flex: 1;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.category-item:hover {
+  background-color: transparent;
+}
+
+.category-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--primary-text);
+  flex-shrink: 0;
+  border: 1px solid var(--secondary-text);
+  border-radius: 2px;
+}
+
+.category-name {
+  font-size: 13px;
+  color: var(--primary-text);
+  flex: 1;
+}
+
+.category-delete-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--tertiary-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.category-item-container:hover .category-delete-btn {
+  opacity: 1;
+}
+
+.category-delete-btn:hover {
+  background-color: var(--border-color);
+  color: var(--primary-text);
+}
+
+.category-input-section {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  margin: 8px 8px 8px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 42px;
+}
+
+.category-input {
+  flex: 1;
+  border: none;
+  border-right: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--primary-text);
+  padding: 12px 14px;
+  border-radius: 0;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.category-input:focus {
+  outline: none;
+  background-color: var(--input-bg);
+}
+
+.category-input::placeholder {
+  color: var(--tertiary-text);
+}
+
+.add-category-btn {
+  padding: 12px 16px;
+  border: none;
+  background-color: transparent;
+  color: var(--primary-text);
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+  font-family: inherit;
+}
+
+.add-category-btn:hover {
+  background-color: var(--hover-bg);
+}

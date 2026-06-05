@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: #f8f8f8;
+  --primary-text: #1a1a1a;
+  --secondary-text: #555555;
+  --tertiary-text: #888888;
+  --border-color: #d5d5d5;
+  --hover-bg: #ececec;
+  --input-bg: #f0f0f0;
+  --input-border: #c8c8c8;
+  --drag-highlight: #e0e0e0;
+  --category-label: #b8860b;
+}
+
+body.dark-mode {
+  --primary-bg: #0f0f0f;
+  --primary-text: #f0f0f0;
+  --secondary-text: #a8a8a8;
+  --tertiary-text: #787878;
+  --border-color: #2a2a2a;
+  --hover-bg: #1f1f1f;
+  --input-bg: #1a1a1a;
+  --input-border: #333333;
+  --drag-highlight: #2a2a2a;
+  --category-label: #cccccc;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--primary-bg);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.app-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.header-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  color: var(--primary-text);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.header-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.theme-toggle-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--primary-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.app-main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 14px;
+  color: var(--secondary-text);
+}
+

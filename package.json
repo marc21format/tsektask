@@ -1,0 +1,59 @@
+{
+  "name": "tsektask",
+  "product name": "TsekTask",
+  "version": "1.0.0",
+  "description": "A simple task management desktop app",
+  "main": "src/electron/main.js",
+  "homepage": "./",
+  "author": "Ian Young",
+  "license": "MIT",
+  "build": {
+    "appId": "com.tsektask.app",
+    "productName": "TsekTask",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "src/server/**"
+    ],
+    "extraResources": [
+      {
+        "from": "icon",
+        "to": "icon"
+      }
+    ],
+    "win": {
+      "icon": "icon/TsekTask.ico"
+    }
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\" \"npm run dev:electron\"",
+    "dev:client": "cd src/client && vite",
+    "dev:server": "node src/server/index.js",
+    "dev:electron": "wait-on http://localhost:5173 && electron .",
+    "build:client": "cd src/client && vite build",
+    "build": "npm run build:client",
+    "start": "electron .",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "electron-is-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.1.0",
+    "typescript": "^5.3.3"
+  }
+}
