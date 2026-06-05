@@ -32,7 +32,7 @@
     "dev:client": "cd src/client && vite",
     "dev:server": "node src/server/index.js",
     "dev:electron": "wait-on http://localhost:5173 && electron .",
-    "build:client": "cd src/client && vite build",
+    "build:client": "vite build",
     "build": "npm run build:client",
     "start": "electron .",
     "pack": "npm run build && electron-builder --dir",

@@ -2,6 +2,7 @@ node_modules/
 dist/
 .env
 .env.local
+src/client/.env
 .DS_Store
 *.log
 .vscode/settings.json
