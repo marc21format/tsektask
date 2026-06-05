@@ -8,7 +8,7 @@ import EditCategoryModal from './components/EditCategoryModal';
 import { MoonIcon, SunIcon, PlusIcon } from './components/Icons';
 import './styles/app.css';
 
-const API_BASE = import.meta.env.VITE_API_URL || '${API_BASE}';
+const API_BASE = '';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
